@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Notes.NoteEntryPage"
+             Title="Asset Entry">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#32a0f4</Color>
+            <Color x:Key="Accent">#72b9f0</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="50"/>
+            <RowDefinition Height ="60"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+
+        <StackLayout Margin="20" Grid.Row="0" Grid.ColumnSpan = "2">
+        <Editor Placeholder="Enter your Asset name"
+                Text="{Binding AssetID}"
+                HeightRequest="80" />
+
+        <Editor Placeholder="Enter your Location"
+                Text="{Binding Location}"
+                HeightRequest="80" />
+
+        <Editor Placeholder="Enter your Asset Status"
+                Text="{Binding Status}"
+                HeightRequest="80" />
+    </StackLayout>
+    
+     
+        <Button Text="Save" 
+                    Clicked="OnSaveButtonClicked" Grid.Row="2"
+                    FontSize="Large" BackgroundColor="{StaticResource Primary}"
+                    TextColor="White"  Margin="10,0,10,10" BorderWidth="2"         BorderColor="Black"
+                                                    />
+
+        <Button Grid.Column="1" Grid.Row ="2" FontSize="Large" BackgroundColor="{StaticResource Primary}"                        
+                    TextColor="White"  Margin="10,0,10,10" BorderWidth="2"         BorderColor="Black"
+                    Text="Delete" 
+                    Clicked="OnDeleteButtonClicked"/>
+        
+    </Grid>
+   
+        
+</ContentPage>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="Notes.NotesPage"
+             Title="Track 3W">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#32a0f4</Color>
+            <Color x:Key="Accent">#72b9f0</Color>
+            <Color x:Key="LightTextColor">#999999</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" 
+                     Clicked="OnNoteAddedClicked" />
+    </ContentPage.ToolbarItems>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="5*" />
+            <RowDefinition Height ="50"/>
+            <RowDefinition Height ="60"/>
+        </Grid.RowDefinitions>
+        <!-- define two rows and two colums for buttons at the bottom -->
+
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <ListView x:Name="listView"
+              Margin="20" Grid.Row="0" Grid.ColumnSpan ="2"
+              ItemSelected="OnListViewItemSelected">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding AssetID}"                          
+                          Detail="{Binding Date}"                                               
+                                                    />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+
+
+        <Label FontSize="Large" HorizontalOptions="Center" Grid.Row ="1" Padding="10,10,0,0" Grid.ColumnSpan="2">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Assets Scanned " />
+                    <Span Text="(5)" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+
+        <Button Grid.Row ="2" Grid.Column="0" Text  ="Add" FontSize="Large" BackgroundColor="{StaticResource Primary}"
+                TextColor="White"  Margin="10,0,10,10" BorderRadius="0" BorderWidth="2" BorderColor="Black"
+                Clicked ="OnNoteAddedClicked"/>
+
+
+        <Button Grid.Row ="2" Grid.Column=" 1" Text ="Post" FontSize="Large" BackgroundColor="{StaticResource Primary}"                       
+                TextColor="White"  Margin="10,0,10,10" BorderRadius="0"
+                BorderWidth="2"
+                BorderColor="Black"
+                Clicked ="OnPostClicked"/>
+        
+    </Grid>
+
+</ContentPage>
